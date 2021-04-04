@@ -33,9 +33,6 @@ public class MusicPlayer {
     }
 
     // IoC is here:
-//    public MusicPlayer(ArrayList<Music> musicList) {
-//        this.musicList = musicList;
-//    }
 
     public void playMusicList() {
         for (Music music : musicList) {
