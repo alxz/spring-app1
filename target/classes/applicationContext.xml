@@ -24,7 +24,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.alex.springcourse.MusicPlayer">
+          class="ru.alex.springcourse.MusicPlayer"
+            scope="prototype">
         <property name="musicList">
                 <list>
                     <ref bean="musicBeanClassicalMusic" />
