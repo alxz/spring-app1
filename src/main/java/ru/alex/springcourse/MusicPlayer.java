@@ -1,7 +1,9 @@
 package ru.alex.springcourse;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+
+import java.util.List;
+import java.util.Random;
 
 //@Component
 public class MusicPlayer {
@@ -9,6 +11,12 @@ public class MusicPlayer {
     private String name;
     @Value("${musicPlayer.volume}")
     private int volume;
+
+    private List<Music> musicList;
+
+    public MusicPlayer(List<Music> musicList){
+        this.musicList = musicList;
+    }
 
     public String getName() {
         return name;
@@ -18,18 +26,24 @@ public class MusicPlayer {
         return volume;
     }
 
-    private Music music1;
-    private Music music2;
-//@Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,
-                       @Qualifier("classicalMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public String playMusic() {
+        Random random = new Random();
+        return "Playing: " + musicList.get(random.nextInt(musicList.size())).getSong() + " with volume " + this.volume;
     }
 
-    public String playMusic() {
-        return "Playing: " +  music1.getSong() + "\n playing: " + music2.getSong() ;
-    }
+
+//    private Music music1;
+//    private Music music2;
+////@Autowired
+//    public MusicPlayer(@Qualifier("rockMusic") Music music1,
+//                       @Qualifier("classicalMusic") Music music2) {
+//        this.music1 = music1;
+//        this.music2 = music2;
+//    }
+//
+//    public String playMusic() {
+//        return "Playing: " +  music1.getSong() + "\n playing: " + music2.getSong() ;
+//    }
 
 }
 
