@@ -1,18 +1,16 @@
 package ru.alex.springcourse;
 
-import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
-
+//@Component
+//@Scope("prototype")
 public class ClassicalMusic implements Music{
-    private ClassicalMusic() {}
-
-    private static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
+//    private ClassicalMusic() {}
+//
+//    private static ClassicalMusic getClassicalMusic() {
+//        return new ClassicalMusic();
+//    }
 
     @PostConstruct
     public void doMyInit() {
